@@ -1,5 +1,9 @@
+import React from 'react';
+import {render, screen} from '@testing-library/react';
+import {TradeDisplay} from '../TradeDisplay';
+
 describe('TradeDisplay', () => {
-  it('displays added trades', () => {
+  it('renders trades on first load', () => {
     const equities = {
       telia: {
         trades: [
@@ -11,5 +15,11 @@ describe('TradeDisplay', () => {
         trades: [{name: 'Ericsson', quatity: '320', amount: '144000'}],
       },
     };
+
+    render(<TradeDisplay />);
+
+    const {queryByText} = render(<TradeDisplay />);
+
+    expect(queryByText('Telia')).not.toBeNull();
   });
 });
