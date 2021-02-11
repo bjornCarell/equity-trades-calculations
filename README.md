@@ -1,3 +1,12 @@
+# equity-trades-calculations
+
+An App for helping you calculate your average cost for equities
+
+Production: https://aktiekalkylator.netlify.app/
+
+Dependencies are locked with a `yarn.lock` file, so please use `yarn` and not
+`npm` for installing them.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
