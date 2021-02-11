@@ -5,6 +5,11 @@ export const TradeForm = () => {
   const [quantityInput, setQuantity] = useState('');
   const [amountInput, setAmount] = useState('');
 
+  const setter = set => e => {
+    const {value} = e.target;
+    set(value);
+  };
+
   const submit = e => {
     e.preventDefault();
     setQuantity('');
@@ -14,17 +19,17 @@ export const TradeForm = () => {
     <form>
       <input
         data-testid="nameInput"
-        onChange={e => setName(e.target.value)}
+        onChange={setter(setName)}
         value={nameInput}
       />
       <input
         data-testid="quantityInput"
-        onChange={e => setQuantity(e.target.value)}
+        onChange={setter(setQuantity)}
         value={quantityInput}
       />
       <input
         data-testid="amountInput"
-        onChange={e => setAmount(e.target.value)}
+        onChange={setter(setAmount)}
         value={amountInput}
       />
       <button data-testid="submit" onClick={e => submit(e)}>
