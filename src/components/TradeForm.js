@@ -32,7 +32,7 @@ export const TradeForm = () => {
         onChange={setter(setAmount)}
         value={amountInput}
       />
-      <button data-testid="submit" onClick={e => submit(e)}>
+      <button data-testid="submit" onClick={submit}>
         Lägg till
       </button>
     </form>
