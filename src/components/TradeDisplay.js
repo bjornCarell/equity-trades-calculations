@@ -3,6 +3,7 @@ import {EquitiesContext} from '../context/equities';
 
 export const TradeDisplay = () => {
   const {equities} = useContext(EquitiesContext);
+  console.log(equities);
   return (
     <>
       <div>Trades</div>
