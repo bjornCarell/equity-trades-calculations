@@ -10,7 +10,8 @@ export const TradeDisplay = () => {
       <table>
         <tbody>
           <tr>
-            {equities && equities.map(equity => <td>{equity.trades.name}</td>)}
+            {equities &&
+              equities.map(equity => <td key={equity.name}>{equity.name}</td>)}
           </tr>
         </tbody>
       </table>
