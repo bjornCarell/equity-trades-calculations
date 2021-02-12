@@ -1,9 +1,9 @@
 import React, {useContext, useState} from 'react';
-import {EquitiesContext} from '../context/equities';
+import {DispatchContext} from '../context/equities';
 import {addTrade} from '../context/actions';
 
 export const TradeForm = () => {
-  const {equities, dispatch} = useContext(EquitiesContext);
+  const {dispatch} = useContext(DispatchContext);
   const [name, setName] = useState('');
   const [quantity, setQuantity] = useState('');
   const [amount, setAmount] = useState('');
