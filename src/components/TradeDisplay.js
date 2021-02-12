@@ -9,8 +9,7 @@ export const TradeDisplay = () => {
       <table>
         <tbody>
           <tr>
-            {equities &&
-              Object.values(equities).forEach(entry => <td>{entry[0]}</td>)}
+            {equities && equities.map(equity => <td>{equity.trades.name}</td>)}
           </tr>
         </tbody>
       </table>

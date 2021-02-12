@@ -1,4 +1,4 @@
-export const initialState = {};
+export const initialState = [];
 
 export const reducer = (state, action) => {
   const {type} = action;
