@@ -31,5 +31,6 @@ describe('TradeDisplay', () => {
     );
 
     expect(queryByText('Telia')).not.toBeNull();
+    expect(queryByText('Ericsson')).not.toBeNull();
   });
 });
