@@ -10,7 +10,7 @@ export const TradeDisplay = () => {
 
   return (
     <>
-      <div>Trades</div>
+      <h2>Aktier</h2>
       <table>
         <tbody>
           <tr>
