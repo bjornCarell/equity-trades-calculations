@@ -41,12 +41,14 @@ describe('TradeDisplay', () => {
   });
 
   it('renders all quantity fields correctly', () => {
+    const {queryAllByTestId} = context;
     const totalQuantity = total('quantity');
+    const quantityFields = queryAllByTestId('quantity');
 
-    expect(screen.queryAllByTestId('quantity')[0]).toHaveTextContent(
+    expect(quantityFields[0]).toHaveTextContent(
       totalQuantity(equities[0].trades),
     );
-    expect(screen.queryAllByTestId('quantity')[1]).toHaveTextContent(
+    expect(quantityFields[1]).toHaveTextContent(
       totalQuantity(equities[1].trades),
     );
   });
