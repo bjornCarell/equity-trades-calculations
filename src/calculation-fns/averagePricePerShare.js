@@ -1,2 +1,2 @@
 export const averagePricePerShare = (amount = 0, quantity = 0) =>
-  amount / quantity;
+  Number((amount / quantity).toFixed(2));

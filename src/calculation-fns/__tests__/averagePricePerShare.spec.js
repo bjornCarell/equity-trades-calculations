@@ -15,8 +15,10 @@ describe('averagePricePerShare', () => {
   const totalAmount = total('amount');
   const {trades} = data;
 
-  it('calcualtes average price per share', () => {
-    const expected = totalAmount(trades) / totalQuantity(trades);
+  it('calcualtes average price per share with two decimals', () => {
+    const expected = Number(
+      (totalAmount(trades) / totalQuantity(trades)).toFixed(2),
+    );
     const actual = averagePricePerShare(
       totalAmount(trades),
       totalQuantity(trades),
@@ -33,17 +35,5 @@ describe('averagePricePerShare', () => {
     );
 
     expect(typeof actual).toEqual(expectedType);
-  });
-
-  it('is returned with two decimals', () => {
-    const expected = Number(
-      (totalAmount(trades) / totalQuantity(trades)).toFixed(2),
-    );
-    const actual = averagePricePerShare(
-      totalAmount(trades),
-      totalQuantity(trades),
-    );
-
-    expect(actual).toEqual(expected);
   });
 });
