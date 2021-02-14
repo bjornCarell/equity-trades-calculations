@@ -12,7 +12,6 @@ describe('total', () => {
 
   it('calculates the total of a given prop', () => {
     const totalQuantity = total('quantity');
-
     const expected = 200;
     const actual = totalQuantity(data.trades);
 
@@ -21,7 +20,6 @@ describe('total', () => {
 
   it('returns a number value', () => {
     const totalAmount = total('amount');
-
     const expected = 'number';
     const actual = totalAmount(data.trades);
 
