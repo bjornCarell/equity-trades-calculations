@@ -20,9 +20,9 @@ describe('total', () => {
 
   it('returns a number value', () => {
     const totalAmount = total('amount');
-    const expected = 'number';
+    const expectedType = 'number';
     const actual = totalAmount(data.trades);
 
-    expect(typeof actual).toEqual(expected);
+    expect(typeof actual).toEqual(expectedType);
   });
 });

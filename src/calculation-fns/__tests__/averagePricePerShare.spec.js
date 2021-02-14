@@ -24,4 +24,14 @@ describe('averagePricePerShare', () => {
 
     expect(actual).toEqual(expected);
   });
+
+  it('returns a number', () => {
+    const expectedType = 'number';
+    const actual = averagePricePerShare(
+      totalAmount(trades),
+      totalQuantity(trades),
+    );
+
+    expect(typeof actual).toEqual(expectedType);
+  });
 });
