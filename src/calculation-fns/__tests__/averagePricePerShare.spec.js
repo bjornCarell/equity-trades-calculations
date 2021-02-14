@@ -7,7 +7,7 @@ describe('averagePricePerShare', () => {
     parentId: 'uuid',
     trades: [
       {name: 'Telia', quantity: '150', amount: '5220', id: 1},
-      {name: 'Telia', quantity: '50', amount: '2750', id: 2},
+      {name: 'Telia', quantity: '50', amount: '2751.5', id: 2},
     ],
   };
 
@@ -33,5 +33,17 @@ describe('averagePricePerShare', () => {
     );
 
     expect(typeof actual).toEqual(expectedType);
+  });
+
+  it('is returned with two decimals', () => {
+    const expected = Number(
+      (totalAmount(trades) / totalQuantity(trades)).toFixed(2),
+    );
+    const actual = averagePricePerShare(
+      totalAmount(trades),
+      totalQuantity(trades),
+    );
+
+    expect(actual).toEqual(expected);
   });
 });
