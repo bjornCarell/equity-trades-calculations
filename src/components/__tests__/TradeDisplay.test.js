@@ -1,5 +1,5 @@
 import React from 'react';
-import {render, screen} from '@testing-library/react';
+import {render} from '@testing-library/react';
 import {EquitiesProvider} from '../../context/equities';
 import {TradeDisplay} from '../TradeDisplay';
 import {total} from '../../calculation-fns/total';
@@ -51,5 +51,14 @@ describe('TradeDisplay', () => {
     expect(quantityFields[1]).toHaveTextContent(
       totalQuantity(equities[1].trades),
     );
+  });
+
+  it('renders all amount fields correctly', () => {
+    const {queryAllByTestId} = context;
+    const totalAmount = total('amount');
+    const amountFields = queryAllByTestId('amount');
+
+    expect(amountFields[0]).toHaveTextContent(totalAmount(equities[0].trades));
+    expect(amountFields[1]).toHaveTextContent(totalAmount(equities[1].trades));
   });
 });

@@ -5,6 +5,7 @@ import {total} from '../calculation-fns/total';
 export const TradeDisplay = () => {
   const {equities} = useContext(EquitiesContext);
   const totalQuantity = total('quantity');
+  const totalAmount = total('amount');
 
   return (
     <>
@@ -22,6 +23,7 @@ export const TradeDisplay = () => {
               <tr key={equity.name}>
                 <td>{equity.name}</td>
                 <td data-testid="quantity">{totalQuantity(equity.trades)}</td>
+                <td data-testid="amount">{totalAmount(equity.trades)}</td>
               </tr>
             ))}
         </tbody>
