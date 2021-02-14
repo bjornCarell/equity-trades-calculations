@@ -24,23 +24,23 @@ describe('TradeDisplay', () => {
     },
   ];
 
-  it('renders all names correctly', () => {
-    const {queryByText} = render(
+  let context;
+
+  beforeEach(() => {
+    context = render(
       <EquitiesProvider value={{equities}}>
         <TradeDisplay />
       </EquitiesProvider>,
     );
+  });
+
+  it('renders all names correctly', () => {
+    const {queryByText} = context;
     expect(queryByText('Telia')).not.toBeNull();
     expect(queryByText('Ericsson')).not.toBeNull();
   });
 
   it('renders all quantity fields correctly', () => {
-    render(
-      <EquitiesProvider value={{equities}}>
-        <TradeDisplay />
-      </EquitiesProvider>,
-    );
-
     const totalQuantity = total('quantity');
 
     expect(screen.queryAllByTestId('quantity')[0]).toHaveTextContent(
