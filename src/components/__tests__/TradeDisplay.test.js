@@ -3,6 +3,7 @@ import {render} from '@testing-library/react';
 import {EquitiesProvider} from '../../context/equities';
 import {TradeDisplay} from '../TradeDisplay';
 import {total} from '../../calculation-fns/total';
+import {averagePricePerShare} from '../../calculation-fns/averagePricePerShare';
 
 describe('TradeDisplay', () => {
   const equities = [
@@ -60,5 +61,25 @@ describe('TradeDisplay', () => {
 
     expect(amountFields[0]).toHaveTextContent(totalAmount(equities[0].trades));
     expect(amountFields[1]).toHaveTextContent(totalAmount(equities[1].trades));
+  });
+
+  it('renders all average price fields correctly', () => {
+    const {queryAllByTestId} = context;
+    const totalAmount = total('amount');
+    const totalQuantity = total('quantity');
+    const averagePrices = queryAllByTestId('average-price');
+
+    expect(averagePrices[0]).toHaveTextContent(
+      averagePricePerShare(
+        totalAmount(equities[0].trades),
+        totalQuantity(equities[0].trades),
+      ),
+    );
+    expect(averagePrices[1]).toHaveTextContent(
+      averagePricePerShare(
+        totalAmount(equities[1].trades),
+        totalQuantity(equities[1].trades),
+      ),
+    );
   });
 });

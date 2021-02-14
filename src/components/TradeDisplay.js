@@ -15,7 +15,7 @@ export const TradeDisplay = () => {
           <tr>
             <th>Aktie</th>
             <th>Antal</th>
-            <th>Belopp</th>
+            <th>Omkostnadsbelopp</th>
             <th>GAV</th>
           </tr>
           {equities &&
